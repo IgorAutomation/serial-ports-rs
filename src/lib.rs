@@ -22,7 +22,7 @@ use std::path::PathBuf;
 use std::slice::Iter;
 
 cfg_if! {
-    if #[cfg(target_os = "linux")] {
+    if #[cfg(any(target_os = "linux", target_os = "freebsd"))] {
         pub mod linux;
         pub use linux::*;
         extern crate glob;
